@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Task } from '../task';
 import{FormsModule} from '@angular/forms'
+import { TasksService } from '../tasks.service';
 
 
 @Component({
@@ -10,19 +11,14 @@ import{FormsModule} from '@angular/forms'
 })
 
 export class AddTaskComponent {
-  taskList: Task[]=[
-    {title:"Faire le ménage",done:false},
-    {title:"Nourir les animaux",done:false},
-    {title:"Prendre RER",done:false},
-    {title:"Manger",done:true},
-  ];
+task2add : string="";
 
-  task2add : string="";
-  addTask(){    
-    let task:string =this.task2add;
-    if(task!=""){
-    this.taskList.push({title:task,done:false});
-    this.task2add="";
-    }
+constructor(private tasksService : TasksService){}
+
+addTask(){
+  if(this.task2add!=""){
+    this.tasksService.addTasks(new Task(this.task2add,false))
   }
+   this.task2add="";
+}
 }

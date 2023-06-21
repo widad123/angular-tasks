@@ -1,7 +1,14 @@
-<ul>
-    <li *ngFor="let task of taskList" [(ngModel)]="updateTask(task.title)">
+<div class="container my-4">
+<div class="card-header p-2 g-col-6 bg-info-subtle text-emphasis-info">
+  Todo's ({{ listOfTasks.length }})
+</div>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action" *ngFor="let task of listOfTasks" >
       Title : {{task.title}}, 
-         <input type="checkbox" [checked]="task.done">
-         <span>{{task.done}}</span>
+         <input class="form-check-input me-1" type="checkbox" [checked]="task.done">
+         <span [class.strikeIt]="task.done">
+           {{task.title}}
+         </span>
     </li>
 </ul>
+</div>
