@@ -20,4 +20,15 @@ export class TasksService {
   addTasks(task2add : Task):void {
     this.taskList.push(task2add);
   }
+
+  setTask(title:string){
+    this.taskList.forEach((task)=>{
+      if(title === task.title){
+        alert(title);
+       this.taskList.push({title:title,done:false});
+      }
+    }) 
+ 
+  }
 }
+

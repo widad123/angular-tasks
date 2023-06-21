@@ -1,0 +1,16 @@
+<div class="container my-4">
+<div class="card-header p-2 g-col-6 bg-info-subtle text-emphasis-info">
+  Todo's ( {{ listOfTasks.length }} )
+</div >
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start" *ngFor="let task of listOfTasks" >
+        Title : {{task.title}}, 
+         <input class="form-check-input ms-2 me-auto" type="checkbox" [checked]="task.done">
+         <span [class.strikeIt]="task.done">
+         </span>
+         <app-update-task  [title]="task.title"></app-update-task>
+          <app-delet-task 
+          [title]="task.title"></app-delet-task>
+      </li>
+    </ul>
+</div>

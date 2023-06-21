@@ -15,6 +15,9 @@ task2add : string="";
 
 constructor(private tasksService : TasksService){}
 
+/**
+ * fonction qui permet d'ajouter une tache
+ */
 addTask(){
   if(this.task2add!=""){
     this.tasksService.addTasks(new Task(this.task2add,false))
